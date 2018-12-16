@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 2 elements from project &apos;Thread&apos;&#x0D;&#x0A;- Original project: &apos;Thread&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Thread/src/bin.生产者消费者模式&#x0D;&#x0A;     Thread/src/src.生产者消费者模式" description="Delete elements" element1="/src&lt;src.生产者消费者模式" element2="/src&lt;src" element3="/src&lt;bin.生产者消费者模式" element4="/src&lt;bin" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1538132424674" subPackages="false" version="1.0"/>
+</session>

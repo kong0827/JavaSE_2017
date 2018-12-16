@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Tue Oct 30 18:57:59 CST 2018
+org.eclipse.jst.jee.server\:Furniture_end=D\:\\apache-tomcat-7.0.52\\webapps\\Furniture_end
+org.eclipse.jst.jee.server\:AdminProduct=D\:\\apache-tomcat-7.0.52\\webapps\\AdminProduct

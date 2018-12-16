@@ -1,0 +1,20 @@
+package com.hsd.transfer;
+
+import java.sql.Connection;
+
+import org.apache.commons.dbutils.QueryRunner;
+
+public class Dao {
+
+	public void out(Account a1, int money,Connection conn) {
+		String sql = "update account set money = money - ? where id = ?";
+		QueryRunner qr = new QueryRunner();
+		
+	}
+
+	public void in(Account a2, int money, Connection conn) {
+		
+		
+	}
+
+}

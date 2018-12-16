@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;HibernateUtil.java&apos; to &apos;Hibernate/src/com.hsd.utils&apos;&#x0D;&#x0A;- Original project: &apos;Hibernate&apos;&#x0D;&#x0A;- Destination element: &apos;Hibernate/src/com.hsd.utils&apos;&#x0D;&#x0A;- Original element: &apos;com.hsd.domain.HibernateUtil.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;com.hsd.utils" element1="/src&lt;com.hsd.domain{HibernateUtil.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1537966217869" units="1" version="1.0"/>
+</session>

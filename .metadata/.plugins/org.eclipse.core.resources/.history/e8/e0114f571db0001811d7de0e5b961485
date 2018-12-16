@@ -1,0 +1,21 @@
+package com.hsd.queryrunner;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+
+public class Test {
+	public static void main(String[] args) throws SQLException {
+		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql = "select * from student";
+		List<Student> list = runner.query(sql, new BeanListHandler<>(Student.class));
+		//System.out.println(list);
+		for (Student student : list) {
+			System.out.println(student);
+		}
+		
+	}
+
+}

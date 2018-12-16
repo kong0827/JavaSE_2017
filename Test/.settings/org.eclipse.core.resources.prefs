@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+encoding//libs/fastjson-1.2.9.jar=UTF-8
+encoding//src/com/hsd/transfer/DataSourceUtils.java=UTF-8
+encoding//src/com/igeek/jdbc/DataSourceUtils.java=UTF-8

@@ -1,0 +1,185 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+body{
+	background: url(../img/register/b2_1.jpg) no-repeat;
+
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+
+.register{
+	position: absolute;
+	top: 150px;
+	right: 180px;
+	width: 360px;
+	height: 420px;
+	background-color: white;
+	
+}
+.title{
+	
+	width: 100%;
+	height: 50px;
+	/*background-color: bisque;*/
+	padding: 20px 40px 0 40px;
+	box-sizing: border-box;
+	
+}
+
+
+.title span{
+	font-size: 20px;
+}
+.title a{
+	float: right;
+	text-decoration: none;
+	color: black;
+	font-size: 12px;
+}
+.title a:hover{
+	color: #1C93D8;
+	text-decoration: underline;
+}
+
+/*form>div{
+	margin-left: 20px;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	width: 280px;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #777777;
+	color: #777777;
+}*/
+
+.name #username{
+	margin-left: 40px;
+	/*margin-bottom: 20px;*/
+	margin-top: 20px;
+	width: 280px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #CCCCCC;
+	color: #808080;
+	font-size: 14px;
+	border-radius: 3px;
+}
+
+#repassword{
+	margin-left: 40px;
+	/*margin-bottom: 20px;*/
+	margin-top: 20px;
+	width: 280px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #CCCCCC;
+	color: #808080;
+	font-size: 14px;
+	border-radius: 3px;
+}
+
+#password{
+	margin-left: 40px;
+	margin-top: 20px;
+	width: 280px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #CCCCCC;
+	color: #808080;
+	font-size: 14px;
+	border-radius: 3px;
+}
+
+#email{
+	margin-left: 40px;
+	margin-top: 20px;
+	width: 280px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #CCCCCC;
+	color: #808080;
+	font-size: 14px;
+	border-radius: 3px;
+}
+
+.submit{
+	margin-left: 40px;
+	/*padding: 5px 0;*/
+	width: 280px;
+	height: 80px;
+	/*border: 1px solid #777777;*/
+}
+
+.submit span{
+	font-size: 12px;
+}
+
+.submit a{
+	float: right;
+	margin-bottom: 10px;
+	color: #808080;
+}
+.submit a:hover{
+	color: #1C93D8;
+}
+
+.submit #btn{
+	width: 280px;
+	height: 38px;
+	cursor: pointer;
+	background-color: #1C93D8;
+	font-size: 16px;
+	color: white;
+}
+
+.other_login .line1{
+	margin-top: 10px;
+	margin-left: 40px;
+	width: 88px;
+	height: 1px;
+	background-color: #808080;
+}
+
+.other_login .line2{
+	margin-top: 10px;
+	width: 88px;
+	height: 1px;
+	background-color: #808080;
+}
+
+
+.other_login .word{
+	padding: 0 5px;
+	width: 88px;
+	/*text-align: center;*/
+	color: #808080;
+}
+
+.other_login .icon{
+	margin-left: 40px;
+	width: 280px;
+	height: 60px;
+	/*background-color: red;*/
+}
+
+.other_login .icon>div{
+	width: 90px;
+	height: 100%;
+	text-align: center;
+	margin-top: 10px;
+	/*line-height: 60px;*/
+}
+
+.other_login .icon>div img{
+	/*color: #808080;*/
+	mix-blend-mode: darken;
+}

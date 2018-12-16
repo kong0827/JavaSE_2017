@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.hsd.classess&apos; to &apos;com.hsd.classLoader&apos;&#x0D;&#x0A;- Original project: &apos;Classess&apos;&#x0D;&#x0A;- Original element: &apos;Classess/src/com.hsd.classess&apos;&#x0D;&#x0A;- Renamed element: &apos;Classess/src/com.hsd.classLoader&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.hsd.classess&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.hsd.classess" name="com.hsd.classLoader" qualified="false" references="true" stamp="1535980617269" textual="false" version="1.0"/>
+</session>

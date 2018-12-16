@@ -1,0 +1,38 @@
+package com.hsd.transfer;
+
+import java.sql.SQLException;
+
+public class Service {
+
+	Dao dao = new Dao();
+	
+	public void transfer(Account a1, Account a2) {
+		try {
+			
+			DataSourceUtils.startTransaction();
+			int money = 10000;
+			dao.out(a1,money);
+			dao.in(a2,money);
+			
+		} catch (SQLException e) {
+			try {
+				DataSourceUtils.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}finally {
+			try {
+				DataSourceUtils.commitAndRelease();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+
+	
+
+}

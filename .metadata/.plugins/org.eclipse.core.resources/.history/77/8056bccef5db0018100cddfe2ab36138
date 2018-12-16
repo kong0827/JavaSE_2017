@@ -1,0 +1,374 @@
+<%@page import="java.sql.SQLException"%>
+<%@page import="com.hsd.domain.Category"%>
+<%@page import="java.util.List"%>
+<%@page import="com.hsd.service.ProductService"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+ 	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!-- jquery js --> 
+		<script type="text/javascript" src="js/jquery.min.js"></script> 
+		
+	</head>
+	<body>
+	<header>
+    <div class="header-container">
+      <div class="header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-sm-4 hidden-xs"> 
+              <!-- Default Welcome Message -->
+              <div class="welcome-msg ">欢 迎 来 到 网 上 商 城 </div>
+            </div>
+            
+            <!-- top links -->
+            <div class="headerlinkmenu col-lg-8 col-md-7 col-sm-8 col-xs-12">
+              <div class="links">
+                <div class="myaccount"><a title="My Account" href="account_page.html"><i class="fa fa-user"></i><span class="hidden-xs">我的账号</span></a></div>
+                <div class="wishlist"><a title="My Wishlist" href="wishlist.html"><i class="fa fa-heart"></i><span class="hidden-xs">心愿清单</span></a></div>
+                <c:if test="${empty user }">
+                <div class="login"><a href="login.jsp"><i class="fa fa-unlock-alt"></i><span class="hidden-xs">登录</span></a></div>
+                </c:if>
+                 <c:if test="${!empty user }">
+                <div class="login"><a href="login.jsp"><i class="fa fa-unlock-alt"></i><span class="hidden-xs">${user.username}</span></a></div>
+                 <div class="login"><a href="login.jsp"><i class="fa fa-unlock-alt"></i><span class="hidden-xs">退出</span></a></div>
+                </c:if>
+                <div class="blog"><a title="Blog" href="register.jsp"><i class="fa fa-rss"></i><span class="hidden-xs">注册</span></a></div>
+              </div>
+              <div class="language-currency-wrapper">
+                <div class="inner-cl">
+                  <div class="block block-language form-language">
+                   <div class="lg-cur"> <span> <img src="images/chinese1.jpg" alt="Chinese"> <span class="lg-fr">简体中文</span> <i class="fa fa-angle-down"></i> </span> </div>
+		                    <ul>
+                    <li> <a class="selected" href="#"> <img src="images/chinese1.jpg" alt="flag"> <span>简体中文</span> </a> </li>
+                      <li> <a class="selected" href="#"> <img src="images/flag-english.jpg" alt="flag"> <span>English</span> </a> </li>
+                      <li> <a href="#"> <img src="images/flag-default.jpg" alt="flag"> <span>French</span> </a> </li>
+                      <li> <a href="#"> <img src="images/flag-german.jpg" alt="flag"> <span>German</span> </a> </li>
+                      <li> <a href="#"> <img src="images/flag-brazil.jpg" alt="flag"> <span>Brazil</span> </a> </li>
+                    </ul>
+                  </div>
+                   <div class="block block-currency">
+                    <div class="item-cur"> <span>RMB </span> <i class="fa fa-angle-down"></i></div>
+                    <ul>
+                     	<li> <a href="#"><span class="cur_icon">¥</span> RMB</a> </li>
+                      <li> <a href="#"><span class="cur_icon">€</span> EUR</a> </li>
+                      <li> <a href="#"><span class="cur_icon">¥</span> JPY</a> </li>
+                      <li> <a class="selected" href="#"><span class="cur_icon">$</span> USD</a> </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <!-- End Default Welcome Message --> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 col-md-3 col-xs-12"> 
+            <!-- Header Logo -->
+            <div class="logo"><a title="e-commerce" href="index.html"><img alt="e-commerce" src="images/logo.png"></a> </div>
+            <!-- End Header Logo --> 
+          </div>
+          <div class="col-md-9 col-sm-8 hidden-xs">
+            <div class="mtmegamenu">
+              <ul>
+                <li class="mt-root demo_custom_link_cms">
+                  <div class="mt-root-item">
+                    <a href="${pageContext.request.contextPath}/default.jsp">
+                    <div class="title title_font"><span class="title-text">主页</span></div>
+                    </a>
+                 </div>
+                  
+                </li>
+                
+                <li class="mt-root">
+                  <div class="mt-root-item"><a href="${pageContext.request.contextPath }/product?method=productList">
+                    <div class="title title_font"><span class="title-text">商品速览</span></div>
+                    </a>
+                  </div>
+                </li>
+                
+                
+              <!--   <li class="mt-root">
+                  <div class="mt-root-item"><a href="shop_grid.html">
+                    <div class="title title_font"><span class="title-text">联 系 我 们</span> </div>
+                    </a>
+                  </div>
+                </li> -->
+                    <li class="mt-root">
+                  <div class="mt-root-item">
+                  <a href="${pageContext.request.contextPath }/product?method=highProduct">
+                    <div class="title title_font"><span class="title-text">高档家具</span> </div>
+                    </a>
+                  </div>
+                </li>
+                
+                <li class="mt-root demo_custom_link_cms">
+                  <div class="mt-root-item"><a href="shopping_cart.jsp">
+                    <div class="title title_font"><span class="title-text">购物车</span></div>
+                    </a>
+                   </div>
+                </li>
+                <li class="mt-root">
+                  <div class="mt-root-item"><a href="about_us.jsp">
+                    <div class="title title_font"><span class="title-text">关于我 们</span></div>
+                    </a></div>
+                </li>
+                
+              </ul>
+              <div class="call-us hidden-sm"> <i class="fa fa-phone"></i>
+              	
+               	 <div class="call-us-inner"> 
+               	 
+	               	 <a href="${pageContext.request.contextPath }/openQQ">立即联系</a>
+	               	  <a href="${pageContext.request.contextPath }/openQQ"><span class="call-num">扣扣: + 1454407712</span></a>
+               	 	
+               	 </div>
+              	
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-4 col-xs-3">
+          <div class="mm-toggle-wrap">
+            <div class="mm-toggle"> <i class="fa fa-align-justify"></i> </div>
+            <span class="mm-label hidden-xs">商 品 类 别</span> </div>
+          <div class="mega-container visible-lg visible-md visible-sm">
+            <div class="navleft-container">
+              <div class="mega-menu-title">
+                <h3>商 品 类 别</h3>
+              </div>
+              <div class="mega-menu-category">
+                <ul id="nav_left" class="nav">
+          		 <%
+	                //准备类别显示的数据
+	          		ProductService service = new ProductService();
+	          		List<Category> categoryList = null;
+	          		
+	          		try {
+	          			categoryList = service.findCategoryList();
+	          		} catch (SQLException e) {
+	          			e.printStackTrace();
+	          		}
+	          		request.setAttribute("categoryList", categoryList);
+	                  	
+                  	
+                  %>
+                  
+                
+                   
+                     <!--   餐 厅 家 具开始  -->
+                  <c:forEach items="${categoryList }" var="category" varStatus="vs" >
+	                  <li id="${category.cid }" class="category"> <a href="#"><i class="icon fa fa-bed fa-fw"></i>${category.cname }</a>
+	                    <div class="wrap-popup column2">
+	                      <div class="popup">
+	                        <div class="row">
+	                          <div class="col-sm-6">
+	                            <h3 id="h3">${category.cname }</h3>
+	                            <ul class="nav" id="${vs.count }">
+	                            
+	                            	<!-- <li><a href='https://www.baidu.com'>百度</a></li> -->
+	                            </ul>
+	                          </div>
+	                         
+	                          <div class="col-sm-12"> <a class="ads1" href="javascript:void(0);"><img class="img-responsive" src="images/menu-img2.jpg" alt=""></a> </div>
+	                        </div>
+	                      </div>
+	                    </div>  
+	                  </li>
+                  
+				 </c:forEach> 
+                  <!--   餐 厅 家 具结束    -->
+                  
+                    <script type="text/javascript">
+					$(function(){
+						$("#nav_left>li").mouseover(function(){
+							var cid = $(this).attr("id");
+							var content = "";
+							
+							console.log("cid:"+cid);
+							
+							$.ajax({
+								url:"${pageContext.request.contextPath}/product?method=conCategory",
+								async:true,
+								type:"POST",
+								data:{"cid":cid},
+								success:function(data){
+									//动态创建 <li> <a href="shop_grid.html"> 餐桌 </a> </li>
+									 for(var i=0;i<data.length;i++){
+										content+="<li id='cc'><a href='${pageContext.request.contextPath}/product?method=concategoryList&cid="+cid+"&conid="+data[i].conid+"'>"+data[i].conname+"</a></li>";
+									 }
+									//将拼接好的li放置到对应的ul中
+									$("#"+cid+" ul").html(content);
+								},
+								error:function(){
+									alert("请求失败");
+								},
+								dataType:"json"
+							});
+							
+						});
+					});
+				 
+				</script> 
+				
+				
+		
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-9 col-sm-6 col-md-6 hidden-xs"> 
+          <!-- Search -->
+          
+          <div class="top-search">
+            <div id="search">
+              <form >
+                <div class="input-group"  style="position:relative">
+                  <input id="search_1" type="text" class="form-control" placeholder="Search" name="search"  onkeyup="searchWord(this)">
+                  
+                  <select class="cate-dropdown hidden-xs hidden-sm" id="styleList">
+                  
+                   
+                  </select>
+                  <button  class="btn-search" id="btn" type="button"><i class="fa fa-search"></i></button>
+                </div>
+                 <div id="showDiv"  style="top:50px;display:none; position:absolute;z-index:1000;background:#fff;  width:370px;border:1px solid gray;"></div>
+              </form>
+            </div>
+          </div>
+          
+          <!-- 点击按钮，进行搜索 -->
+          <script type="text/javascript">
+          	$(function(){
+          		$("#btn").click(function(){
+          			var word = $("#search_1").val();
+          			var style = $("#styleList option:selected").val();
+          			window.location.href = "${pageContext.request.contextPath}/product?method=searchProduct&word="+word+"&style="+style;
+          		})
+          	});
+          
+          </script>
+                 
+          <!-- 获取所有的家具风格 -->
+         <script type="text/javascript">
+			//header.jsp加载完毕后 获得所有的style数据
+				
+				var content = "";
+				$.post(
+					"${pageContext.request.contextPath}/product?method=styleList",
+					function(data){
+						//动态创建<option> <a href="shop_grid.html"> 餐桌 </a> </option>
+						for(var i=0;i<data.length;i++){
+							content+="<option value="+data[i].sid+"><a href='#'>"+data[i].sname+"</a></option>";
+							//content+="<option value="+data[i].sid+"><a href='${pageContext.request.contextPath}/productListByCid?cid="+data[i].sid+"'>"+data[i].sname+"</a></option>";
+						}
+						
+						//将拼接好的li放置到ul中
+						$("#styleList").html(content);
+					},
+					"json"
+				);
+			
+		</script>
+          
+          <!-- 完成异步搜索 -->
+		<script type="text/javascript">
+		
+			function overFn(obj){
+				$(obj).css("background","#DBEAF9");
+			}
+			function outFn(obj){
+				$(obj).css("background","#fff");
+			}
+			
+			function clickFn(obj){
+				$("#search_1").val($(obj).html());
+				$("#showDiv").css("display","none");
+			}
+			function searchWord(obj){	
+				//1、获得输入框的输入的内容
+				var word = $(obj).val();
+				/* alert(word); */
+				//2、根据输入框的内容去数据库中模糊查询---List<Product>
+				var content = "";
+				$.post(
+					"${pageContext.request.contextPath}/product?method=searchWord",
+					{"word":word},
+					function(data){
+						//3、将返回的商品的名称 现在showDiv中
+						if(data.length>0){
+							for(var i=0;i<data.length;i++){
+								content+="<div style='padding:5px;cursor:pointer' onmouseover='overFn(this)' onmouseout='outFn(this)' onclick='clickFn(this)'>"+data[i]+"</div>";
+							}
+							$("#showDiv").html(content);
+							$("#showDiv").css("display","block");
+						}
+					},
+					"json"
+				);
+				
+			}
+		</script>
+          
+   
+          <!-- End Search --> 
+        </div>
+        <!-- top cart -->
+        <div class="col-md-3 col-xs-9 col-sm-2 top-cart">
+          <div class="top-cart-contain">
+            <div class="mini-cart">
+              <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> <a href="${pageContext.request.contextPath }/shopping_cart.jsp">
+                <div class="cart-icon"><i class="fa fa-shopping-cart"></i></div>
+                <div class="shoppingcart-inner hidden-xs hidden-sm"><span class="cart-title">购 物 车</span> <span class="cart-total">4 Item(s): $520.00</span></div>
+                </a></div>
+              <div>
+                <div class="top-cart-content">
+                  <div class="block-subtitle hidden-xs">最 近 添 加 商 品</div>
+                  <ul id="cart-sidebar" class="mini-products-list">
+                   <c:forEach items="${cart.cartItems }" var="entry">
+                    <li class="item last odd"> <a href="shopping_cart.html" title="Ipsums Dolors Untra" class="product-image"><img src="${pageContext.request.contextPath }/${entry.value.product.pimage}" alt="Lorem ipsum dolor" width="65"></a>
+                      <div class="product-details"> <a href="#" title="Remove This Item" class="remove-cart"><i class="icon-close"></i></a>
+                        <p class="product-name"><a href="shopping_cart.html">￥${entry.value.product.pname}</a> </p>
+                        <strong>${entry.value.buyNum}</strong> x <span class="price">￥${entry.value.product.pprice}</span> </div>
+                    </li>
+                    </c:forEach>
+                  </ul>
+                  <div class="top-subtotal">总计: <span class="price">￥${cart.total }元 </span></div>
+                  <div class="actions">
+                    <button class="btn-checkout" type="button"><i class="fa fa-check"></i><span>提交订单</span></button>
+                    <button class="view-cart" id="lookCart" type="button"><i class="fa fa-shopping-cart"></i> <span>查 看 购 物 车</span></button>
+                  </div>
+                  <script type="text/javascript">
+                  	$(function(){
+                  		$("#lookCart").click(function(){
+                  			window.location.href = "${pageContext.request.contextPath}/shopping_cart.jsp";
+                  		});
+                  	});
+                  </script>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  </header>
+		
+	</body>
+</html>

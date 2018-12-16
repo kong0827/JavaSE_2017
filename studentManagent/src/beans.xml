@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.igeekhome.com/bean" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.igeekhome.com/bean bean-schema.xsd ">
+	<bean className="com.hsd.dao.impl.StudentDaoImpl" id="stu_dao">
+		
+	</bean>
+	<bean className="com.hsd.service.impl.StudentServiceImpl" id="stu_service"></bean>
+</beans>

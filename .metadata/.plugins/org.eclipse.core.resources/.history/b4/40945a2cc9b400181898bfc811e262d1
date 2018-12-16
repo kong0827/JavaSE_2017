@@ -1,0 +1,33 @@
+package com.hsd.transfer;
+
+import org.junit.Test;
+
+public class Web {
+	Account a1= new Account();
+	Account a2 = new Account();
+	Service service = new Service();
+	
+	@Test
+	public void test(){
+		a1.setId(1);
+		a1.setName("刘强东");
+		a1.setMoney(1000000.00);
+		
+		a2.setId(2);
+		a2.setName("章泽天");
+		a2.setMoney(100000.00);
+		
+		boolean transfer = service.transfer(a1,a2);
+		
+		if(transfer){
+			System.out.println("刘强东："+a1.getMoney());
+			System.out.println("章泽天："+a2.getMoney());
+			System.out.println("转账成功");
+		}else{
+			System.out.println("转账失败");
+		}
+		
+		
+	}
+
+}

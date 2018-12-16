@@ -1,0 +1,25 @@
+package com.hsd.transfer;
+
+import org.junit.Test;
+
+public class Web {
+	Account a1= new Account();
+	Account a2 = new Account();
+	Service service = new Service();
+	
+	@Test
+	public void test(){
+		a1.setId(1);
+		a1.setName("ÁõÇ¿¶«");
+		a1.setMoney(1000000.00);
+		
+		a2.setId(2);
+		a2.setName("ÕÂÔóÌì");
+		a2.setMoney(100000.00);
+		
+		service.transfer(a1,a2);
+		
+		
+	}
+
+}
